@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jane Austen - METABOOK</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet" />
+    <style>
+        /* Estilos básicos para esta página */
+         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #2c2c2c;
+            background-color: #fffdfa;
+            line-height: 1.6;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+
+        h1 {
+            font-family: 'Pirata One', cursive;
+            font-size: 3rem;
+            color: #070707;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Contenedor flex para imagen y descripción */
+        .autor-contenedor {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .imagen-autor {
+            flex: 0 0 200px;
+            max-width: 55%;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(42, 0, 63, 0.3);
+        }
+
+        .descripcion {
+            flex: 1;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .descripcion p {
+            margin-bottom: 1em;
+        }
+
+        /* Galería de obras con imágenes y texto fijo */
+        .galeria-obras {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .obra-item {
+            text-align: center;
+        }
+
+        .obra-item img {
+            width: 100%;
+            max-width: 150px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .obra-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .obra-item p {
+            font-weight: bold;
+            color: #2a003f;
+            margin: 5px 0;
+        }
+
+        a.volver {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 600;
+            color: #7c7a7a;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border: 2px solid #7c7a7a;
+            padding: 10px 20px;
+            border-radius: 30px;
+            width: 160px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        a.volver:hover {
+            background-color: #858186;
+            color: #fffdfa;
+        }
+
+        @media (max-width: 768px) {
+            .autor-contenedor {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .imagen-autor {
+                flex: 0 0 150px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Jane Austen</h1>
+
+        <div class="autor-contenedor">
+            <img src="imagenes/jane austen.png" alt="Retrato de Jane Austen" class="imagen-autor" />
+            <section class="descripcion">
+                <p>
+                    Jane Austen (1775–1817) fue una novelista inglesa cuyos agudos retratos de la sociedad de su época
+                    y su fina ironía la convirtieron en una de las figuras más destacadas de la literatura inglesa.
+                </p>
+                <p>
+                    Nacida en Steventon, Hampshire, Austen vivió gran parte de su vida en el entorno rural, observando
+                    con perspicacia las costumbres y normas sociales de la burguesía de principios del siglo XIX.
+                </p>
+                <p>
+                    Aunque publicó sus obras de forma anónima durante su vida, novelas como <em>Sentido y Sensibilidad</em>
+                    y <em>Pride and Prejudice</em> (Orgullo y Prejuicio) alcanzaron gran popularidad. Su estilo combina
+                    romance, crítica social y humor sutil.
+                </p>
+            </section>
+        </div>
+
+        <h1>OBRAS IMPORTANTES</h1>
+
+        <section class="galeria-obras">
+            <div class="obra-item">
+                <img src="imagenes/sentido.jpg" alt="Sentido y Sensibilidad" />
+            
+            </div>
+            <div class="obra-item">
+                <img src="imagenes/orgullo y prejuicio.jpg" alt="Orgullo y Prejuicio" />
+
+            </div>
+            <div class="obra-item">
+                <img src="imagenes/Cartel-Emma.jpg" alt="Emma" />
+              
+            </div>
+        </section>
+
+        <a href="index.html" class="volver">Volver a METABOOK</a>
+    </main>
+    
+    <footer class="footer">
+    &copy; 2025 METABOOK - Todos los derechos reservados.
+    </footer>
+
+</body>
+</html>

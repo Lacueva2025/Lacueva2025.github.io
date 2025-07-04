@@ -1,0 +1,295 @@
+/* === Reset básico === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === Estilos generales === */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c2c2c;
+  background-color: #ffffff;
+  line-height: 1.6;
+}
+
+p {
+  text-align: justify;
+}
+
+.seccion-principal {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* === Sección de título === */
+.titulo-seccion {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.titulo-seccion h1 {
+  font-family: "Pirata One", system-ui;
+  font-size: 7.5rem;
+  color: #000000;
+  font-weight: 900;
+  letter-spacing: 10px;
+  text-shadow: 1px 1px 2px #ccc;
+}
+
+/* === Sección de póster === */
+.poster-destacado {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.poster-destacado img {
+  max-width: 100%;
+  width: 1000px;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+
+/* === Imagen y texto en secciones separadas === */
+.imagen-texto-horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 60px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.07);
+}
+
+.imagen-texto-horizontal img.imagen-principal {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.texto-horizontal {
+  max-width: 500px;
+  flex: 1;
+}
+
+.texto-horizontal h2 {
+  font-size: 2rem;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.texto-horizontal p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* === Galería GRID con hover y texto centrado === */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+  justify-items: center;
+  background-color: #fefefe;
+}
+
+.contenedor-imagen {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.contenedor-imagen img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  transition: filter 0.4s ease, transform 0.3s ease;
+}
+
+.contenedor-imagen .overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-53%, -53%);
+  color: black; 
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease, font-size 0.2s ease;
+  pointer-events: none;
+  /* borde blanco alrededor con text-shadow */
+ 
+}
+
+
+/* Hover Effects */
+.contenedor-imagen:hover img {
+  filter: blur(15px);
+  transform: scale(1.05);
+}
+
+.contenedor-imagen:hover .overlay {
+  opacity: 1;
+  font-size: 2.5rem;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .imagen-texto-horizontal {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .texto-horizontal {
+    max-width: 100%;
+  }
+
+  .poster-destacado img {
+    width: 100%;
+  }
+
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .galeria-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contenedor-imagen {
+    max-width: 100%;
+    
+  }
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 1rem;            
+  color: #141414;            
+  background-color: #e0e0e0;  
+  border-top: 2px solid #aaaaaa; 
+  font-weight: 1000;          
+}
+
+
+.carrusel-container {
+  max-width: 800px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.carrusel-slide {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carrusel-slide img {
+  width: 400%; /* ajusta el tamaño de la imagen */
+  max-height: 600px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.btn-carrusel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.btn-izquierda {
+  left: 10%;
+}
+
+.btn-derecha {
+  right: 10%;
+}
+
+.carrusel-container h3 {
+  font-size: 4.5rem; /* Cambia este valor para ajustar el tamaño */
+  font-family: "Pirata One", system-ui;
+}
+
+.menu-autores {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.btn-autores {
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: "Pirata One", system-ui;;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lista-autores {
+  display: none;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  list-style: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-family: "Pirata One", system-ui;
+  min-width: 180px; /* más ancho para que quepa bien el texto */
+}
+
+.lista-autores li {
+  padding: 5px 10px;
+  white-space: nowrap; /* 🔒 Esto evita que se dividan los nombres en dos líneas */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: default;
+}
+
+
+  .videos-section h3 {
+    font-family:"Pirata One", system-ui;
+    font-size: 4.5rem;
+    color: #131313; 
+    margin-bottom: 20px;
+  }
+
+

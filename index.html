@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>METABOOK</title>
+
+  <!-- Fuentes e íconos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<div class="menu-autores">
+  <button class="btn-autores" onclick="toggleAutores()">
+    <i class="fas fa-user-pen"></i> Autores
+  </button>
+  <ul id="lista-autores" class="lista-autores">
+    <li>Jesús Barrientos</li>
+    <li>Carla Hernandez</li>
+    <li>David Hernandez</li>
+    <li>Eleuterio Nava</li>
+    <li>Ariel Rodriguez </li>
+    <li>Alan de la Cruz </li>
+    <li>Mariana Cardona</li>
+    <li>Erick Sánchez</li>
+    <li>Brenda Flores</li>
+    <li>Gabriela Sibaja</li>
+    <li>Aranzazu Gonzalez</li>
+     <li>Isabella Ruiz</li>
+
+  </ul>
+</div>
+
+  <main class="seccion-principal">
+
+    <!-- Título centrado -->
+    <section class="titulo-seccion">
+      <h1>metabook</h1>
+    </section>
+
+    <!-- Sección de póster destacada -->
+    <section class="poster-destacado">
+      <img src="imagenes/poster -02.png" alt="Póster destacado" />
+    </section>
+
+    <!-- Sección con imagen y texto -->
+    <section class="imagen-texto-horizontal">
+      <img src="imagenes/foto-principal1.jpeg" alt="Imagen principal" class="imagen-principal" />
+      <div class="texto-horizontal">
+        <h2>¿Quiénes somos?</h2>
+        <p>
+          Somos un grupo de estudiantes de Diseño Gráfico apasionados por contar historias a través de la imagen, la
+          forma y la composición visual. Este proyecto nace de nuestro interés por la literatura y por explorar cómo el
+          diseño puede darle una nueva vida a las palabras de distintos autores.<br />
+          Durante este proceso de investigación, nos sumergimos en el análisis de obras literarias para
+          reinterpretarlas desde una mirada gráfica, creando un libro que no solo reúne textos, sino también
+          experiencias visuales.<br />
+          Este proyecto es nuestra forma de rendir homenaje a la literatura, pero también de demostrar cómo el diseño
+          puede transformar la forma en que comprendemos y sentimos los libros.
+        </p>
+      </div>
+    </section>
+
+    <!-- Galería de autores -->
+    <section class="galeria-grid">
+      <a href="emily.html" class="contenedor-imagen">
+        <img src="imagenes/emily brtonte.png" alt="Emily Brontë" />
+        <div class="overlay">Emily Brontë</div>
+      </a>
+
+      <a href="hemingway.html" class="contenedor-imagen">
+        <img src="imagenes/heminway.png" alt="Ernest Hemingway" />
+        <div class="overlay">Ernest Hemingway</div>
+      </a>
+
+      <a href="jane.html" class="contenedor-imagen">
+        <img src="imagenes/jane austen.png" alt="Jane Austen" />
+        <div class="overlay">Jane Austen</div>
+      </a>
+
+      <a href="cortazar.html" class="contenedor-imagen">
+        <img src="imagenes/julio cortazar.png" alt="Julio Cortázar" />
+        <div class="overlay">Julio Cortázar</div>
+      </a>
+
+      <a href="mary.html" class="contenedor-imagen">
+        <img src="imagenes/mary shelly.png" alt="Mary Shelley" />
+        <div class="overlay">Mary Shelley</div>
+      </a>
+
+      <a href="melville.html" class="contenedor-imagen">
+        <img src="imagenes/melville.png" alt="Herman Melville" />
+        <div class="overlay">Herman Melville</div>
+      </a>
+
+      <a href="orwell.html" class="contenedor-imagen">
+        <img src="imagenes/orwell.png" alt="George Orwell" />
+        <div class="overlay">George Orwell</div>
+      </a>
+
+      <a href="plath.html" class="contenedor-imagen">
+        <img src="imagenes/silvia plath.png" alt="Sylvia Plath" />
+        <div class="overlay">Sylvia Plath</div>
+      </a>
+    </section>
+
+    <!-- Carrusel de evidencias -->
+    <section class="evidencias carrusel-container" aria-label="Carrusel de evidencias">
+      <h3>Evidencias</h3>
+      <div class="carrusel-slide">
+        <button class="btn-carrusel btn-izquierda" aria-label="Anterior">&#10094;</button>
+        <img id="imagen-carrusel" src="imagenes/img1.jpg" alt="Evidencia 1" />
+        <button class="btn-carrusel btn-derecha" aria-label="Siguiente">&#10095;</button>
+      </div>
+    </section>
+  </main>
+
+ 
+  <!-- Scripts -->
+<script>
+  // Carrusel automático
+  const totalImagenes = 8;
+  let indiceActual = 1;
+  let intervalo;
+
+  function cambiarImagen(direccion) {
+    indiceActual += direccion;
+    if (indiceActual < 1) indiceActual = totalImagenes;
+    if (indiceActual > totalImagenes) indiceActual = 1;
+
+    const imagen = document.getElementById("imagen-carrusel");
+    imagen.src = `imagenes/img${indiceActual}.jpg`;
+    imagen.alt = `Evidencia ${indiceActual}`;
+  }
+
+  function iniciarCarruselAutomatico() {
+    intervalo = setInterval(() => {
+      cambiarImagen(1);
+    }, 3000); // 3 segundos
+  }
+
+  function cambiarImagenConReinicio(direccion) {
+    cambiarImagen(direccion);
+    clearInterval(intervalo);
+    iniciarCarruselAutomatico();
+  }
+
+  document.querySelector('.btn-izquierda').onclick = () => cambiarImagenConReinicio(-1);
+  document.querySelector('.btn-derecha').onclick = () => cambiarImagenConReinicio(1);
+  iniciarCarruselAutomatico();
+
+  // Menú desplegable de autores
+  function toggleAutores() {
+    const lista = document.getElementById("lista-autores");
+    lista.style.display = lista.style.display === "block" ? "none" : "block";
+  }
+
+  document.addEventListener('click', function (event) {
+    const menu = document.querySelector('.menu-autores');
+    const lista = document.getElementById("lista-autores");
+    if (!menu.contains(event.target)) {
+      lista.style.display = 'none';
+    }
+  });
+</script>
+
+<!-- Sección de videos -->
+<section class="videos-section" aria-label="Sección de videos" style="max-width: 800px; margin: 40px auto; text-align: center;">
+  <h3>Videos</h3>
+  <div class="video-container" style="margin-bottom: 30px;">
+   
+    <video src="videos/cueva.mp4" controls style="width: 100%; max-height: 450px; border-radius: 8px; background-color: black;"></video>
+  </div>
+  <div class="video-container">
+
+    <video src="videos/cueva1.mp4" controls style="width: 100%; max-height: 450px; border-radius: 8px; background-color: black;"></video>
+  </div>
+</section>
+ 
+<!-- Footer -->
+  <footer class="footer">
+    &copy; 2025 METABOOK - Todos los derechos reservados.
+  </footer>
+
+</body>
+
+</html>
